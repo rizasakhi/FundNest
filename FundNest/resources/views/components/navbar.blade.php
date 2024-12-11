@@ -12,7 +12,7 @@
             <a class="nav-link" aria-current="page" href="{{ route('campaign') }}">Campaign</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Create Campaign</a>
+            <a class="nav-link" href="{{ route('create-campaign') }}">Create Campaign</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('about') }}">About Us</a>

@@ -6,7 +6,7 @@
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="{{ route('home') }}" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="{{ route('campaign') }}" class="nav-link p-0 text-muted">Campaign</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Create Campaign</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('create-campaign') }}" class="nav-link p-0 text-muted">Create Campaign</a></li>
             <li class="nav-item mb-2"><a href="{{ route('about') }}" class="nav-link p-0 text-muted">About Us</a></li>
           </ul>
         </div>
@@ -18,7 +18,7 @@
             <div class="d-flex flex-column flex-sm-row w-100 gap-2" bis_skin_checked="1">
               <label for="newsletter1" class="visually-hidden">Email address</label>
               <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-              <button class="btn btn-dark" type="button">Subscribe</button>
+              <button class="btn btn-outline-dark" type="button">Subscribe</button>
             </div>
           </form>
         </div>

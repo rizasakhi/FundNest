@@ -10,7 +10,9 @@
 <body>
     <x-navbar/>
 
-    <h1>Campaign</h1>
+    <div class="container col-10">
+        <h1>Campaign</h1>
+    </div>
 
     <x-footer/>    
 

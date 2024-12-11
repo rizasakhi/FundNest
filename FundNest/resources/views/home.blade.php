@@ -22,7 +22,9 @@
                 <p class="lead">Join thousands of people who believe that small steps can create big impacts. Start your campaign journey today!</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start" bis_skin_checked="1">
                 <button type="button" class="btn btn-dark btn-lg px-4 me-md-2">Create Campaign</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">See Campain</button>
+                <a href="{{ route('campaign') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">See Campain</button>
+                </a>
             </div>
         </div>
     </div>
