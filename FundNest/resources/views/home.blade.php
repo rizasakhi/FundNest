@@ -18,12 +18,14 @@
                 <img src="https://img.freepik.com/free-vector/crowdfunding-flat-cartoon-concept-with-human-hands-throwing-coins-productive-idea-growth-symbols-vector-illustration_1284-84401.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6" bis_skin_checked="1">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Make a Better World, One Donation at a Time</h1>
-                <p class="lead">Join thousands of people who believe that small steps can create big impacts. Start your campaign journey today!</p>
+                <h1 class="display-5 fw-bold lh-1 mb-3">@lang('heroes.header')</h1>
+                <p class="lead">@lang('heroes.description')</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start" bis_skin_checked="1">
-                <button type="button" class="btn btn-dark btn-lg px-4 me-md-2">Create Campaign</button>
+                <a href="{{ route('create-campaign') }}">
+                    <button type="button" class="btn btn-dark btn-lg px-4 me-md-2">@lang('navbar.create-campaign')</button>
+                </a>
                 <a href="{{ route('campaign') }}">
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">See Campain</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">@lang('heroes.see-campaign')</button>
                 </a>
             </div>
         </div>

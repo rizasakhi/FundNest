@@ -9,18 +9,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('campaign') }}">Campaign</a>
+            <a class="nav-link" aria-current="page" href="{{ route('campaign') }}">@lang('navbar.campaign')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('create-campaign') }}">Create Campaign</a>
+            <a class="nav-link" href="{{ route('create-campaign') }}">@lang('navbar.create-campaign')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('about') }}">About Us</a>
+            <a class="nav-link" href="{{ route('about') }}">@lang('navbar.about-us')</a>
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
+          <div class="dropdown pe-2">
+            <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ strtoupper(app()->getLocale()) }}
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="{{ route('change.locale', 'id') }}">Indonesia</a></li>
+              <li><a class="dropdown-item" href="{{ route('change.locale', 'en') }}">English</a></li>
+            </ul>
+          </div>
+          <input class="form-control me-2" type="search" placeholder="@lang('navbar.search')" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">@lang('navbar.search')</button>
         </form>
       </div>
     </div>
