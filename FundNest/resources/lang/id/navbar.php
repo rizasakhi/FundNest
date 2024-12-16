@@ -11,7 +11,9 @@ return [
     'email-placeholder' => 'Alamat Email',
     'subs-button' => 'Berlangganan',
     'rights' => 'Semua hak dilindungi undang-undang',
-    'section' => 'Bagian'
+    'section' => 'Bagian',
+    'login' => 'Masuk',
+    'logout' => 'Keluar'
 ]
 
 ?>

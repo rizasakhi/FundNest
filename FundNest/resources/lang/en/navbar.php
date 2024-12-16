@@ -11,7 +11,9 @@ return [
     'email-placeholder' => 'Email Address',
     'subs-button' => 'Subscribe',
     'rights' => 'All rights reserved',
-    'section' => 'Section'
+    'section' => 'Section',
+    'login' => 'Login',
+    'logout' => 'Logout'
 ]
 
 ?>

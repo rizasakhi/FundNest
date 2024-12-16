@@ -9,10 +9,12 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -22,10 +24,6 @@ Route::get('/edit-campaign/{id}', [createCampaignController::class, 'edit'])->na
 Route::post('/edit-campaign/{id}', [createCampaignController::class, 'update'])->name('update-campaign');
 
 Route::get('/lang/{locale}', function ($locale) {
-    // if (in_array($locale, ['en', 'id'])) {
-    //     session(['locale' => $locale]);
-    // }
-    // dd($locale);
 
     App::setlocale($locale);
     Session::put('locale', $locale);
@@ -33,3 +31,9 @@ Route::get('/lang/{locale}', function ($locale) {
     return redirect()->back();
 
 })->name('change.locale');
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('campaign/search', [CampaignController::class, 'index'])->name('search-campaign');

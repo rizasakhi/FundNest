@@ -10,41 +10,47 @@
 <body>
     <x-navbar/>
 
-    <div class="container col-10 d-flex justify-content-center align-items-center flex-column vh-100">
-        <div class="header text-center">
-            <h1>@lang('form.header.title')</h1>
-            <p>@lang('form.header.description')</p>
+    @auth
+        <div class="container col-10 d-flex justify-content-center align-items-center flex-column vh-100">
+            <div class="header text-center">
+                <h1>@lang('form.header.title')</h1>
+                <p>@lang('form.header.description')</p>
+            </div>
+            <div class="form col-6">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                <form action="{{ route('store-campaign') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="campaignPicture" class="form-label">@lang('form.form.campaign_picture')</label>
+                        <input class="form-control border-dark" type="file" id="campaignPicture" name="banner_image">
+                    </div>
+                    <div class="mb-3">
+                        <label for="campaignName" class="form-label">@lang('form.form.campaign_name')</label>
+                        <input type="text" class="form-control border-dark" id="campaignName" name="name" placeholder="@lang('form.form.campaign_name_placeholder')">
+                    </div>
+                    <div class="mb-3">
+                        <label for="campaignDateStart" class="form-label">@lang('form.form.campaign_start')</label>
+                        <input type="date" class="form-control border-dark" name="start_date" id="campaignDateStart">
+                    </div>
+                    <div class="mb-3">
+                        <label for="campaignDateEnd" class="form-label">@lang('form.form.campaign_end')</label>
+                        <input type="date" class="form-control border-dark" name="end_date" id="campaignDateEnd">
+                    </div>
+                    <div class="mb-3">
+                        <label for="campaignDescription" class="form-label">@lang('form.form.campaign_description')</label>
+                        <input type="text" class="form-control border-dark" name="description" id="campaignDescription" placeholder="@lang('form.form.campaign_description_placeholder')">
+                    </div>
+                    <button class="btn btn-outline-dark" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="form col-6">
-            @if (session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-            <form action="{{ route('store-campaign') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label for="campaignPicture" class="form-label">@lang('form.form.campaign_picture')</label>
-                    <input class="form-control border-dark" type="file" id="campaignPicture" name="banner_image">
-                </div>
-                <div class="mb-3">
-                    <label for="campaignName" class="form-label">@lang('form.form.campaign_name')</label>
-                    <input type="text" class="form-control border-dark" id="campaignName" name="name" placeholder="@lang('form.form.campaign_name_placeholder')">
-                </div>
-                <div class="mb-3">
-                    <label for="campaignDateStart" class="form-label">@lang('form.form.campaign_start')</label>
-                    <input type="date" class="form-control border-dark" name="start_date" id="campaignDateStart">
-                </div>
-                <div class="mb-3">
-                    <label for="campaignDateEnd" class="form-label">@lang('form.form.campaign_end')</label>
-                    <input type="date" class="form-control border-dark" name="end_date" id="campaignDateEnd">
-                </div>
-                <div class="mb-3">
-                    <label for="campaignDescription" class="form-label">@lang('form.form.campaign_description')</label>
-                    <input type="text" class="form-control border-dark" name="description" id="campaignDescription" placeholder="@lang('form.form.campaign_description_placeholder')">
-                </div>
-                <button class="btn btn-outline-dark" type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
+    @else
+        <h1 class="text-center">Please Login first</h1>
+    @endauth
+
+    
 
     <x-footer/>    
 

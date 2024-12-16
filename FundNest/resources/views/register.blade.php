@@ -28,7 +28,7 @@
                 <input type="password" id="form3Example3" class="form-control" placeholder="Confirm Password" />
                 <div class="text-center text-lg-start">
                     <button  type="button" class="btn btn-dark"
-                      style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                      style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
                     <p class="small mt-2 pt-1 mb-0">Already have an account? <a href="{{ route('login') }}"
                         class="link-dark">Login</a></p>
                   </div>

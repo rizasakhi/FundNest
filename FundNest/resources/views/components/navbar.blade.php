@@ -17,6 +17,18 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('about') }}">@lang('navbar.about-us')</a>
           </li>
+          @auth
+          <li class="nav-item">
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-link nav-link">@lang('navbar.logout')</button>
+            </form>
+          </li>
+          @else
+            <li class="nav-item">
+              <a class="nav-link link-underline-dark" href="{{ route('login') }}">@lang('navbar.login')</a>
+            </li>
+          @endauth
         </ul>
         <form class="d-flex">
           <div class="dropdown pe-2">
@@ -29,8 +41,11 @@
               <li><a class="dropdown-item" href="{{ route('change.locale', 'en') }}">English</a></li>
             </ul>
           </div>
-          <input class="form-control me-2" type="search" placeholder="@lang('navbar.search')" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">@lang('navbar.search')</button>
+          <form action="{{ route('search-campaign') }}" method="GET">
+            @csrf
+            <input class="form-control me-2" name="search" type="search" placeholder="@lang('navbar.search')" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit">@lang('navbar.search')</button>
+          </form>
         </form>
       </div>
     </div>
