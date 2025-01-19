@@ -27,8 +27,17 @@
                   <p class="card-text">{{ $data->description }}</p>
                   <p class="card-text">{{ $data->start_date }} - {{ $data->end_date }}</p>
                   {{-- <p>{{ $data->banner_image }}</p> --}}
-                  <a href="#" class="btn btn-dark btn-outline-light">@lang('form.participate')</a>
-                  <a href="{{ route('edit-campaign', $data->id  ) }}" class="btn btn-outline-dark">@lang('form.edit')</a>
+                  <a href="{{ route('donate-campaign', $data->id) }}" class="btn btn-dark btn-outline-light">@lang('form.participate')</a>
+                  @if ($data->user_id === auth()->id())
+                  <a href="{{ route('edit-campaign', $data->id) }}" class="btn btn-outline-dark">@lang('form.edit')</a>
+                  <form action="{{ route('delete-campaign', $data->id) }}" method="POST" class="d-inline-block">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this campaign?');">
+                    @lang('Delete')
+                  </button>
+                  </form>
+                  @endif
                 </div>
               </div>
           @endforeach

@@ -6,6 +6,7 @@ use App\Http\Controllers\createCampaignController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DonationController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -37,3 +38,7 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('campaign/search', [CampaignController::class, 'index'])->name('search-campaign');
+Route::delete('/campaign/{id}', [CampaignController::class, 'destroy'])->name('delete-campaign');
+
+Route::get('/campaign/{id}/donate', [DonationController::class, 'index'])->name('donate-campaign');
+Route::post('/campaign/{id}/donate', [DonationController::class, 'process'])->name('process-donation');

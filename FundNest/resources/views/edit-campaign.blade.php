@@ -9,7 +9,12 @@
 </head>
 <body>
     <x-navbar/>
-
+    @if ($campaign->user_id !== auth()->id())
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+            <h1 class="text-danger">You do not have permission to edit this campaign.</h1>
+        </div>
+        @php return; @endphp
+    @endif
     <div class="container col-10 d-flex justify-content-center align-items-center flex-column vh-100">
         <div class="header text-center">
             <h1>Campaign Form</h1>

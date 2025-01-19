@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CampaignController extends Controller
 {
+    
     public function index(Request $request){
 
         $lang = App::getLocale();
@@ -46,6 +47,18 @@ class CampaignController extends Controller
 
         return view('campaign', compact('campaign'));
 
+    }
+
+    public function destroy($id){
+        $campaign = Campaign::find($id);
+
+        if ($campaign->user_id !== auth()->id()) {
+            return redirect()->route('campaign')->with('error', 'You are not authorized to delete this campaign.');
+        }
+
+        $campaign->delete();
+
+        return redirect()->route('campaign')->with('success', 'Campaign deleted successfully!');
     }
 
 }
